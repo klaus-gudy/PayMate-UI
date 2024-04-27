@@ -2,6 +2,8 @@ import Header from "@/components/common/header";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card"
 import DashboardCard from "./_components/dashboard-card";
+import { Bargraph } from "./_components/bargraph";
+import { Renewal } from "./_components/renewal";
 
 export default function Dashboard() {
   return (
@@ -57,7 +59,7 @@ export default function Dashboard() {
                 }
               />
               <DashboardCard
-                title="Maintanace made"
+                title="Maintanance made"
                 value="34"
                 description="from last week"
                 icon={
@@ -66,6 +68,27 @@ export default function Dashboard() {
                   </>
                 }
               />
+            </div>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+              <Card className="col-span-4">
+                <CardHeader>
+                  <CardTitle>Income</CardTitle>
+                </CardHeader>
+                <CardContent className="pl-2">
+                  <Bargraph />
+                </CardContent>
+              </Card>
+              <Card className="col-span-4 md:col-span-3">
+                <CardHeader>
+                  <CardTitle>Renewal</CardTitle>
+                  <CardDescription>
+                    List of contracts that will expire within 60 days.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Renewal />
+                </CardContent>
+              </Card>
             </div>
           </TabsContent>
         </Tabs>
